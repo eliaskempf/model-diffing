@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you find our approach interesting for your own work, please cite it as below."
+authors:
+  - family-names: Kempf
+    given-names: Elias
+  - family-names: Schrodi
+    given-names: Simon
+  - family-names: Cywiński 
+    given-names: Bartosz
+  - family-names: Brox
+    given-names: Thomas
+  - family-names: Nanda
+    given-names: Neel
+  - family-names: Conmy
+    given-names: Arthur
+title: "Simple LLM Baselines are Competitive for Model Diffing"
+version: 0.1.0
+url: "https://github.com/eliaskempf/model-diffing"
+preferred-citation:
+  type: article
+  authors:
+    - family-names: Kempf
+      given-names: Elias
+    - family-names: Schrodi
+      given-names: Simon
+    - family-names: Cywiński 
+      given-names: Bartosz
+    - family-names: Brox
+      given-names: Thomas
+    - family-names: Nanda
+      given-names: Neel
+    - family-names: Conmy
+      given-names: Arthur
+  url: "https://arxiv.org/abs/2602.10371"
+  journal: "arXiv preprint"
+  title: "Simple LLM Baselines are Competitive for Model Diffing"
+  year: 2026
