@@ -1,0 +1,55 @@
+# Experiment configuration for hypothesis evaluation.
+# Update file paths to point to your actual judging results.
+
+display_names:
+  gemini: "\\texttt{Gemini} - Revisions"
+  qwen_em: "\\texttt{Qwen} - Misalignment"
+  gemma_gender: "\\texttt{Gemma} - User Gender"
+
+experiments:
+  - name: qwen_em
+    method: llm
+    key: qwen_em_llm
+    train_file: path/to/qwen_em/llm_judging_results_train.json
+    test_file: path/to/qwen_em/llm_judging_results_test.json
+
+  - name: qwen_em
+    method: sae
+    key: qwen_em_sae
+    train_file: path/to/qwen_em/sae_judging_results_train.json
+    test_file: path/to/qwen_em/sae_judging_results_test.json
+
+  - name: gemma_gender
+    method: llm
+    key: gemma_gender_llm
+    train_file: path/to/gemma_gender/llm_judging_results_train.json
+    test_file: path/to/gemma_gender/llm_judging_results_test.json
+
+  - name: gemma_gender
+    method: sae
+    key: gemma_gender_sae
+    train_file: path/to/gemma_gender/sae_judging_results_train.json
+    test_file: path/to/gemma_gender/sae_judging_results_test.json
+
+  - name: gemini
+    method: llm
+    key: gemini_llm
+    train_file: path/to/gemini/llm_judging_results_train.json
+    test_file: path/to/gemini/llm_judging_results_test.json
+
+  - name: gemini
+    method: sae
+    key: gemini_sae
+    train_file: path/to/gemini/sae_judging_results_train.json
+    test_file: path/to/gemini/sae_judging_results_test.json
+
+datasets:
+  - name: qwen_em
+    llm_key: qwen_em_llm
+    sae_key: qwen_em_sae
+  - name: gemma_gender
+    llm_key: gemma_gender_llm
+    sae_key: gemma_gender_sae
+  - name: gemini
+    llm_key: gemini_llm
+    sae_key: gemini_sae

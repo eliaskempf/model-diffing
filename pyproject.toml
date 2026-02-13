@@ -1,0 +1,110 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "model-diffing"
+version = "0.1.0"
+description = "Dataset comparison using LLM behavioral analysis"
+authors = [{name = "Elias Kempf"}, {name = "Simon Schrodi"}]
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.12"
+
+dependencies = [
+    # Core ML/DL
+    "torch>=2.8.0,<2.10",
+    "transformers~=4.57",
+    "peft>=0.18",
+
+    # Data Science
+    "pandas~=2.2",
+    "numpy~=1.26",
+    "scipy~=1.15",
+    "scikit-learn~=1.6",
+    "statsmodels~=0.14",
+    "umap-learn~=0.5",
+
+    # Visualization
+    "matplotlib~=3.10",
+    "seaborn~=0.13",
+    "tueplots~=0.2",
+
+    # API/HTTP
+    "openai~=1.70",
+    "requests>=2.32",
+    "httpx~=0.27",
+
+    # Environment/Config
+    "python-dotenv~=1.0",
+    "pyyaml>=6.0",
+
+    # HuggingFace ecosystem
+    "huggingface-hub>=0.35",
+    "datasets>=4.5",
+
+    # Progress & Validation
+    "tqdm~=4.67",
+    "pydantic~=2.11",
+]
+
+[project.optional-dependencies]
+sae = [
+    "sae-lens>=6.18",
+    "transformer-lens>=2.16",
+]
+safety = [
+    "safetytooling",
+]
+dev = [
+    "ruff>=0.11",
+    "ipykernel>=7.0",
+    "pytest>=8.3",
+    "vcrpy>=7.0",
+    "pytest-recording>=0.13",
+    "pytest-asyncio>=0.24",
+]
+
+[tool.uv]
+# safetytooling pins exact versions for transformers and datasets that
+# conflict with ours. It works fine with newer versions — override them.
+override-dependencies = [
+    "transformers~=4.57",
+    "datasets>=4.5",
+]
+
+[tool.uv.sources]
+safetytooling = { git = "https://github.com/safety-research/safety-tooling" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+src = ["src", "scripts"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+docstring-code-format = true
+
+[tool.ruff.lint]
+select = ["F", "E", "W", "I", "UP", "B", "SIM", "RUF"]
+ignore = [
+    "E501",   # line too long — handled by formatter
+    "B008",   # function call in default argument — common in argparse
+    "B023",   # function definition does not bind loop variable — standard matplotlib pattern
+    "B905",   # zip-strict — research code legitimately uses zip without strict
+    "SIM108", # ternary operator — readability preference
+    "SIM110", # reimplementable with any() — overly pedantic
+    "SIM115", # open context manager — some files keep handles open
+    "RUF001", # ambiguous unicode — intentional × in plot labels
+    "RUF002", # ambiguous unicode in docstrings
+    "RUF012", # mutable class variables
+    "RUF059", # unpacked variable never used — fig, ax = plt.subplots() pattern
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["model_diffing"]

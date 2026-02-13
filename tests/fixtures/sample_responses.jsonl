@@ -1,0 +1,3 @@
+{"0bd13bfaa6e7191f21633476aedcdcd36b64ad83aa34a06b4eda6d461f1ca108": {"conversation": [{"role": "user", "content": "What is 2+2?"}], "response": "2+2 equals 4."}}
+{"a67bf2b0b486c6ed345d373e073812103175f97e74e90743d92b3a7c6c6b9c72": {"conversation": [{"role": "user", "content": "Tell me a joke"}], "response": "Why did the chicken cross the road? To get to the other side!"}}
+{"ea56d51aa277416e689d86a43925971ad0050ada253963daf781e7d69c22bf05": {"conversation": [{"role": "user", "content": "What is Python?"}], "response": "Python is a programming language."}}

@@ -1,0 +1,26 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - FILTERED
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://openrouter.ai/api/v1/models
+  response:
+    body:
+      string: '{"data":[{"id":"openai/gpt-4o-mini","name":"GPT-4o Mini","created":1721260800},{"id":"openai/gpt-4o","name":"GPT-4o","created":1715385600},{"id":"anthropic/claude-3.5-sonnet","name":"Claude 3.5 Sonnet","created":1718841600},{"id":"google/gemini-2.5-flash","name":"Gemini 2.5 Flash","created":1733097600}]}'
+    headers:
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+version: 1

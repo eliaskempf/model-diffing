@@ -1,0 +1,4 @@
+{
+  "system_prompt_hypothesis": "You are given a list of sentences that describe a difference between the responses of two LLMs. Your task is to find what these sentences have in common and output a concise and testable hypothesis that captures the shared theme or pattern among them (e.g., `Provides short and concise answers`). The hypothesis should be specific enough to be evaluated against new data, focusing on the underlying reason for the differences observed in the sentences. Exactly follow this output format:\nHypothesis: <your concise and testable hypothesis here>",
+  "user_prompt_template": "Here are sentences of a cluster:\n\n{all_sentences}\n\nProvide a concise and testable hypothesis of the common theme or topic that unites these sentences."
+}
